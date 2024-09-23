@@ -60,7 +60,6 @@ def main():
         st.write('Kategori: ', category)
 
         
-
 def category_selection(category):
     if (category == 'Pendidikan'):
         return 'Deployment/model_pendidikan.pkl'
@@ -70,11 +69,10 @@ def category_selection(category):
         return 'Deployment/model_tinggi.pkl'
     return 'Deployment/model_lainnya.pkl'
 
-
 def predict(kota, year, months, category):
-    import joblib
-    model = joblib.load(category_selection(category))
-    
+    with open(category_selection(category), 'rb') as f:
+        model = pickle.load(f)
+             
     # Encode categorical variables
     kota_encoded = labelEncoder.fit_transform([kota])[0]
     category_encoded = labelEncoder.fit_transform([category])[0]
