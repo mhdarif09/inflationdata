@@ -62,13 +62,14 @@ def main():
         
 
 def category_selection(category):
-    if (category=='Pendidikan'):
-        return 'model_pendidikan.pkl'
-    elif(category=='Menengah'):
-        return 'model_menengah.pkl'
-    elif(category=='Tinggi'):
-        return 'model_tinggi.pkl'
-    return 'model_lainnya.pkl'
+    if (category == 'Pendidikan'):
+        return 'Deployment/model_pendidikan.pkl'
+    elif (category == 'Menengah'):
+        return 'Deployment/model_menengah.pkl'
+    elif (category == 'Tinggi'):
+        return 'Deployment/model_tinggi.pkl'
+    return 'Deployment/model_lainnya.pkl'
+
 
 def predict(kota, year, months, category):
     import joblib
